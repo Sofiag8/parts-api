@@ -21,3 +21,15 @@ class PartViewSet(viewsets.ModelViewSet):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=False, methods=['delete'], url_path='bulk-delete')
+    def bulk_delete(self, request):
+        ids = request.data.get('ids', [])
+        if not isinstance(ids, list):
+            return Response({'error': 'Expected a list of IDs'}, status=status.HTTP_400_BAD_REQUEST)
+
+        parts_to_delete = Part.objects.filter(id__in=ids)
+        deleted_count = parts_to_delete.count()
+        parts_to_delete.delete()
+
+        return Response({'message': f'{deleted_count} parts deleted.'}, status=status.HTTP_200_OK)
