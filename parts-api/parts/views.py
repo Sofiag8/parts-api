@@ -6,6 +6,9 @@ from rest_framework import status
 from .models import Part
 from .serializers import PartSerializer
 
+from collections import Counter
+import re 
+
 class PartViewSet(viewsets.ModelViewSet):
     queryset = Part.objects.all()
     serializer_class = PartSerializer
@@ -33,3 +36,12 @@ class PartViewSet(viewsets.ModelViewSet):
         parts_to_delete.delete()
 
         return Response({'message': f'{deleted_count} parts deleted.'}, status=status.HTTP_200_OK)
+    
+    @action(detail=False, methods=['get'], url_path='top-words')
+    def top_words(self, request):
+        descriptions = Part.objects.values_list('description', flat=True)
+        text = ' '.join(descriptions).lower()
+        words = re.findall(r'\b[a-z]+\b', text)
+        most_common = Counter(words).most_common(5)
+        response_data = {word: count for word, count in most_common}
+        return Response(response_data)
