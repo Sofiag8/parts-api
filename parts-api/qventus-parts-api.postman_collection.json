@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "3ed1cff9-f48a-42ef-8de0-0e43e26118fe",
+		"name": "QVENTUS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30545862"
+	},
+	"item": [
+		{
+			"name": "get-parts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/parts/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-top-words",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/parts/top-words/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parts",
+						"top-words",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-parts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test create part 2\",\n    \"sku\": \"DCMM39823DSGC2\",\n    \"description\": \"Test description create part 2\",\n    \"weight_ounces\": 9,\n    \"is_active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/parts/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bulk-create-parts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"name\": \"Energy Core\",\n    \"sku\": \"ENG001\",\n    \"description\": \"Core module used to store energy in high-capacity circuits\",\n    \"weight_ounces\": 10,\n    \"is_active\": true\n  },\n  {\n    \"name\": \"Circuit Stabilizer\",\n    \"sku\": \"CIR045\",\n    \"description\": \"Stabilizes power in high-voltage circuit modules\",\n    \"weight_ounces\": 8,\n    \"is_active\": true\n  },\n  {\n    \"name\": \"Power Module\",\n    \"sku\": \"POW099\",\n    \"description\": \"Power module for energy transfer and circuit control\",\n    \"weight_ounces\": 12,\n    \"is_active\": true\n  },\n  {\n    \"name\": \"Energy Converter\",\n    \"sku\": \"ENG002\",\n    \"description\": \"Converts stored energy to usable power in modules\",\n    \"weight_ounces\": 7,\n    \"is_active\": true\n  },\n  {\n    \"name\": \"Circuit Expander\",\n    \"sku\": \"CIR998\",\n    \"description\": \"Expands circuit capacity in complex energy modules\",\n    \"weight_ounces\": 6,\n    \"is_active\": true\n  }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/parts/bulk-create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parts",
+						"bulk-create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-part",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test create part updated 2\",\n    \"sku\": \"DCMM39823DSGC2\",\n    \"description\": \"Test description create part updated\",\n    \"weight_ounces\": 9,\n    \"is_active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/parts/4/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parts",
+						"4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-part",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/parts/4/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parts",
+						"4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bulk-delete-part",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test create part updated 2\",\n    \"sku\": \"DCMM39823DSGC2\",\n    \"description\": \"Test description create part updated\",\n    \"weight_ounces\": 9,\n    \"is_active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/parts/bulk-delete/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parts",
+						"bulk-delete",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
